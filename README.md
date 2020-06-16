@@ -15,6 +15,15 @@ So, we had two datasets:
 There are 4 choices in encoder_type such as RNN, biRNN, mean and transformer.
 Similarly, we used the 3 choices available in rnn_type, namely, LSTM, GRU and SRU.
 
+<img src="./Screenshots/Model_accuracies.JPG" width="400">
+
+###### Figure - Accuracy of different models trained for 800 epochs. In this case as well bRNN+LSTM i.e. the baseline model has the highest accuracy of of 30.26 percent.
+
+<img src="./Screenshots/Attention.JPG" width="400">
+
+###### Figure - Accuracies for different global attention functions using the bRNN+LSTM model. Luong performs the best.
+
+
 ## Commands Required:
 This model architecture uses the in-built Open NMT system to build the model.
 
@@ -28,7 +37,7 @@ Run the command:
 
 **Step (2)- Preprocess Data:**
 
-python pm_generation.py prepare -data_dir dataset_location -data_out prefix
+      python pm_generation.py prepare -data_dir dataset_location -data_out prefix
 
 This is using preprocess.py in OpenNMT system, and will genereate three following files:
 
@@ -40,7 +49,7 @@ When running this command, it will create 2 temp files- source and target. The s
 
 **Step (3) Training:**
 
-python pm_generation.py train -data prefix -model model_location
+      python pm_generation.py train -data prefix -model model_location
 
 This is using train.py in OpenNMT system. The model consists of a 2-layer biLSTM with 500 hidden units on the encoder and a 2-layer LSTM with 500 hidden units on the decoder. Attention is used the general scheme, which is a multiplicative global attention with one weight matrix.
 
@@ -48,14 +57,15 @@ This step basically trains the model on preprocessed data to get relevancy score
 
 **Step (4) Generate Post-modifier:**
 
-python pm_generation.py generate -data_dir dataset_location -dataset dataset_prefix -model model_dir -out output_file
+      python pm_generation.py generate -data_dir dataset_location -dataset dataset_prefix -model model_dir -out output_file
 
 This is using translate.py in OpenNMT system which uses the model directory mentioned in the command line arguments to generate the post modifiers.
 
 ## Software Requirements:
 
 Run the command:
-pip install -r OpenNMT-py/requirements.opt.txt
+
+      pip install -r OpenNMT-py/requirements.opt.txt
 
 
 requirements.opt.txt (this file has the following requirments)
