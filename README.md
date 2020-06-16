@@ -1,5 +1,7 @@
 # Improvement-on-Knowledge-backed-Generation-Model-Using-Post-Modifier-Dataset (POMO)
 
+## Introduction
+
 - Post-modifier is a short descriptive phrase that comes after a word (usually a noun) in a sentence which gives more detailed contextual information about that word. Post modifier generation model has two sub tasks - selecting a set of facts or claims about the concerned entity (WikiData) and from that set selecting the most relevant fact to generate a post modifier that contextually describes it.(POMO Dataset)
 
 - We trained the different neural models for 100 and 800 epochs respectively, and the results for both the cases deemed the model using bi- Directional LSTM encoder/decoder module to be the best performing one, in terms of Prediction Score. Thus, for this model we try to improve the PoMo by altering the attention mechanism for the model. The Global attention function (Luong) gave us the optimal results.
